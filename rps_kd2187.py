@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 # Rock, Paper Scissors project code.
 # Kirk Donaldson
-# v1.3- added code to randomize computer player type 
+# v1.31 added comments. added ".lower()" to HumanPlayer input
+# v1.3- added code to randomize computer player type
 # v1.2- updated to include CyclicPlayer
 #
 
@@ -17,6 +18,7 @@ in this game"""
 
 
 class Player:
+    # default computer player type: always chooses "rock"
     def move(self):
         return "rock"
 
@@ -28,15 +30,17 @@ class Player:
 
 
 class RandomPlayer(Player):
+    # computer player type makes random choice of selection in moves
     def move(self):
         return random.choice(moves)
 
 
 class HumanPlayer(Player):
+    # human player. includes error check for valid move response.
     def move(self):
         index = 0
         while index == 0:
-            response = input("Choose your move- rock, paper, or scissors: ")
+            response = input("Choose your move- rock, paper, or scissors: ").lower()
             if response in moves:
                 index = 1
             else:
@@ -45,6 +49,8 @@ class HumanPlayer(Player):
 
 
 class ReflectPlayer(Player):
+    # computer player that makes random first move, then chooses opponent's
+    # ... previous move.
     def __init__(self):
         self.lastmove = random.choice(moves)
 
@@ -56,6 +62,8 @@ class ReflectPlayer(Player):
 
 
 class CyclicPlayer(Player):
+    # computer player that makes random first move, then selects next move in
+    # ... list
     def __init__(self):
         self.index = random.randint(0, 3)
 
@@ -65,13 +73,14 @@ class CyclicPlayer(Player):
 
 
 def beats(one, two):
+    # determine order of precidence.
     return ((one == 'rock' and two == 'scissors') or
             (one == 'scissors' and two == 'paper') or
             (one == 'paper' and two == 'rock'))
 
 
 def whoWon(score1, score2):
-    # print(isinstance(score2, int))
+    # determine with player wins at the end of game.
     print(f"{score1} to {score2}\n")
     if score1 == score2:
         print("It's a DRAW!!!")
@@ -83,7 +92,6 @@ def whoWon(score1, score2):
 
 def SelectPlayer(typeOfPlayer):
     # selects type of computer player
-    # self.typeOfPlayer = random.randint(0, 3)
     if typeOfPlayer == 0:
         return Player()
     elif typeOfPlayer == 1:
@@ -117,8 +125,8 @@ class Game:
             print("Player 2 WINS")
             self.p2Score += 1
             print(f"Score is {self.p1Score} to {self.p2Score}\n")
-        self.p1.learn(move1, move2)
-        self.p2.learn(move2, move1)
+        self.p1.learn(move1, move2)  # for ReflectPlayer type
+        self.p2.learn(move2, move1)  # for ReflectPlayer type
 
     def play_game(self):
         self.howMany = int(input("How many rounds do you want to play? "))
