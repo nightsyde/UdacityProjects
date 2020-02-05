@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 # Rock, Paper Scissors project code.
 # Kirk Donaldson
-# v1.2
+# v1.3- added code to randomize computer player type 
+# v1.2- updated to include CyclicPlayer
+#
 
 import random
 
@@ -79,6 +81,19 @@ def whoWon(score1, score2):
         print("Player 1 Wins!!!")
 
 
+def SelectPlayer(typeOfPlayer):
+    # selects type of computer player
+    # self.typeOfPlayer = random.randint(0, 3)
+    if typeOfPlayer == 0:
+        return Player()
+    elif typeOfPlayer == 1:
+        return RandomPlayer()
+    elif typeOfPlayer == 2:
+        return ReflectPlayer()
+    elif typeOfPlayer == 3:
+        return CyclicPlayer()
+
+
 class Game:
     def __init__(self, p1, p2):
         self.p1 = p1
@@ -116,5 +131,6 @@ class Game:
 
 
 if __name__ == '__main__':
-    game = Game(HumanPlayer(), CyclicPlayer())
+
+    game = Game(HumanPlayer(), SelectPlayer(random.randint(0, 3)))
     game.play_game()
