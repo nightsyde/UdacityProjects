@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+# Rock, Paper Scissors project code.
+# Kirk Donaldson
+# v1.2
+
 import random
 
 """This program plays a game of Rock, Paper, Scissors between two Players,
