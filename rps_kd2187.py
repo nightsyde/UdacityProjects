@@ -49,6 +49,15 @@ class ReflectPlayer(Player):
         return self.lastmove
 
 
+class CyclicPlayer(Player):
+    def __init__(self):
+        self.index = random.randint(0, 3)
+
+    def move(self):
+        self.index += 1
+        return moves[self.index % 3]
+
+
 def beats(one, two):
     return ((one == 'rock' and two == 'scissors') or
             (one == 'scissors' and two == 'paper') or
@@ -98,10 +107,10 @@ class Game:
         for round in range(self.howMany):
             print(f"Round {round+1}:")
             self.play_round()
-        whoWon(self.p1Score,self.p2Score)
+        whoWon(self.p1Score, self.p2Score)
         print("Game over!")
 
 
 if __name__ == '__main__':
-    game = Game(HumanPlayer(), ReflectPlayer())
+    game = Game(HumanPlayer(), CyclicPlayer())
     game.play_game()
