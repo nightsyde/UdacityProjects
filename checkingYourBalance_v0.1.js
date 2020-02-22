@@ -15,14 +15,10 @@ if (checkBalance) {
     } else if (!isActive) {
         console.log("Your account is no longer active.");
     } else if (balance === 0 && isActive){
-        console.log("Your is empty.");
+        console.log("Your account is empty.");
     } else {
         console.log("Your balance is negative. Please contact bank.");
     }
 } else {
     console.log("Thank-you. Have a nice day!")
 }
-
-
-
-
