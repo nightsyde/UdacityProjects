@@ -4,7 +4,6 @@
 const form = document.getElementById('sizePicker');
 var dataSet = new FormData();
 var firstRun = 0;
-const gridTable = document.createElement('table');
 
 const workSpace = document.getElementById('pixelCanvas');
 // Select color input
@@ -14,27 +13,32 @@ document.addEventListener('click', function() {
   console.log("mouse click");
 
 });
-
+function colorChanger(cell) {
+  var chosenCell = document.getElementById(cell);
+  var chosenColor = colorInput.value;
+  chosenCell.setAttribute('style', 'background-color:' + chosenColor );
+  console.log(chosenColor + "clicked for " + tdID);
+}
 function makeGrid() {
-  // Select size input
+// Your code goes here!
+
+
+// Select size input
 
   console.log("makeGrid entered");
   var tableWidth = dataSet.get("0")
   var tableHeight = dataSet.get("1");
-
-  if (firstRun === 0) {
-    workSpace.appendChild(gridTable);
-    firstRun = 1;
-  } else {
-    workSpace.removeChild(gridTable);
-    workSpace.appendChild(gridTable);
-  }
+  const gridTable = document.createElement('table');
 
 
+  workSpace.appendChild(gridTable);
 
-// Your code goes here!
+
 // creating the grid works.
-// now to figure out how to pass the variables from the form to the function
+// table height and width works.
+// need to clear old table to build new one
+// need to select cell for colorChanger
+
   for (var i = 1;i <= tableHeight;++i) {
     // create new row
     var rowID = "row" + i;
@@ -45,9 +49,13 @@ function makeGrid() {
       var tdID = "tdx" + i + "y" + j;
       const newCell = document.createElement('td');
       newCell.setAttribute('id',tdID);
-/*      newCell.addEventListener('click', function() {
+      newCell.addEventListener('click', function() {
         console.log(tdID + " clicked");
-      });*/
+        var chosenColor = colorInput.value;
+        var chosenCell = document.getElementById(tdID);
+        colorChanger(chosenCell);
+
+      });
       // append to existing row
       newRow.appendChild(newCell);
       }
@@ -82,6 +90,7 @@ form.addEventListener('formdata', (e) => {
   }
   makeGrid();
 });
+
 
 // determine which cell was clicked
 // const selectedCell = ???;
