@@ -1,69 +1,114 @@
-.page{
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 100px 75px 1fr 30px;
-  grid-template-areas:
-    "hd"
-    "nb"
-    "main"
-    "ft";
-}
-.header{
-  grid-area: "hd";
-  text-align: center;
-}
-.footer{
-  grid-area: "ft";
-  text-align: center;
-}
-.button{
-  text-align: center;
-  margin: 3px;
-}
-.main{
-  grid-area: "main";
-  padding: 5px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-}
-.post{
-  min-height: 50px;
-}
-.navbar{
-  grid-area: "nb";
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
 
-}
-.box{
-  border: 2px solid red;
-}
 h1{
 
 }
 article{
 
 }
-div{
-
+a.post-Item{
+  color: black;
+  text-decoration: none;
 }
-@media (min-width: 415px){
+div{
+}
+body{
+  background: url("../images/537.gif") repeat #00cc00;
+}
+.page{
+  display:grid;
+  width: 100%;
+  min-width: 400px;
+  grid-template:
+    "avi head" 100px
+    "nav nav" 75px
+    "main main" 1fr
+    "foot foot" 30px
+    / 100px 1fr;
+  padding: 5px;
+}
+.header{
+  grid-area: head;
+  text-align: center;
+  background: #CCCCCC;
+}
+.avatar{
+  grid-area: avi;
+  width: 100px;
+  height: 100px;
+  background: no-repeat center/100% url("../images/patches_layout.jpg");
+}
+.container{
+  display: flex;
+  flex-direction: column;
+}
+.navbar{
+  grid-area: nav;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background: url("../images/503.gif") repeat #ccc;
+}
+.main{
+  grid-area: main;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background: ;
+}
+.post{
+  min-height: 50px;
+  max-height: 200px;
+  width: 100%;
+  padding: 10px;
+  background: #dddddd;
+}
+.footer{
+  grid-area: foot;
+  text-align: center;
+  background: #CCCCCC
+}
+.button{
+  text-align: center;
+  margin: 3px;
+}
+.box{
+  border: 2px solid black;
+}
+
+@media (min-width: 600px){
   .page{
-    display: grid;
-    grid-template-columns: 50px 1fr;
-    grid-template-rows: 50px 1fr 30px;
-    grid-template-areas:
-      "hd hd"
-      "nb main"
-      "ft ft";
+    display:grid;
+    width: 100%;
+    grid-template:
+      "avi head" 100px
+      "nav main" 1fr
+      "foot foot" 30px
+      / 100px 1fr;
+    padding: 5px;
   }
   .navbar{
+    grid-area: nav;
     display: flex;
     flex-direction: column;
-    width: 50px;
+    align-items: center;
+    justify-content: flex-start;
+    background: url("../images/503.gif") repeat #ccc;
+  }
+  .main{
+    grid-area: main;
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: start;
+    gap: 5px;
+    background: ;
+  }
+  .post{
+    min-height: 50px;
+    max-height: 200px;
+    max-width: 300px;
   }
 }
