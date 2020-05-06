@@ -14,6 +14,24 @@ div{
 body{
   background: url("../images/537.gif") repeat #00cc00;
 }
+form{
+  background: #dddddd;
+  padding: 20px;
+  border: 2px solid black;
+}
+form.form-Item {
+    display: table;
+}
+div.form-Item {
+    display: table-row;
+}
+label, input {
+    display: table-cell;
+    margin-bottom: 10px;
+}
+label {
+    padding-right: 10px;
+}
 .page{
   display:grid;
   width: 100%;
