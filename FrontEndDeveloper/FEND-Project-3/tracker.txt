@@ -1,0 +1,1 @@
+1) = get apiKey from OpenWeatherMap (e7e66ceeab7188cf96ef0bbe2e64b9ac)
