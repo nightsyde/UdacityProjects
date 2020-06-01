@@ -8,7 +8,7 @@ body{
     grid-auto-rows: minmax(150px, auto);
     /* grid-template-columns:  */
     height:100vh;
-    background: #f23557;
+    background: #111111;
     color: #f0d43a;
     justify-content: center;
     grid-gap: 1em;
@@ -25,22 +25,34 @@ body{
 }
 
 #entryHolder{
-
+  /* display: grid;
+  grid-template:
+    "date temp" 50px
+    "content content" 1fr
+    /100px, 1fr;
+  padding: 5px; */
 }
 
 #date{
+  gird-area: date;
+  text-align: center;
 
 }
 
 #temp{
+  grid-area: temp;
+  text-align: center;
 
 }
 
 #content{
+  grid-area: content;
+  text-align: left;
 
 }
 
 .headline {
+  font-size: 2em;
 
 }
 .title{
@@ -92,20 +104,20 @@ button:focus {
     outline: none;
 }
 /* Style for Placeholder Text*/
-::placeholder { /* Firefox, Chrome, Opera */ 
-    color: #f0d43a; 
+::placeholder { /* Firefox, Chrome, Opera */
+    color: #f0d43a;
     font-family: 'Oswald', sans-serif;
 
-} 
-  
-:-ms-input-placeholder { /* Internet Explorer 10-11 */ 
-    color: #f0d43a; 
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #f0d43a;
     font-family: 'Oswald', sans-serif;
 
-} 
-  
-::-ms-input-placeholder { /* Microsoft Edge */ 
-    color: #f0d43a; 
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: #f0d43a;
     font-family: 'Oswald', sans-serif;
 
-} 
+}
