@@ -39,6 +39,10 @@ module.exports = {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
       },
+      {
+        test: /\.scss$/,
+        use: [ 'style-loader', 'css-loader', 'sass-loader' ]
+      },
 
     ]
   },
@@ -55,7 +59,7 @@ module.exports = {
         cleanStaleWebpackAssets: true,
         protectWebpackAssets: false
     }),
-    new BundleAnalyzerPlugin(),
+    // new BundleAnalyzerPlugin(),
 
   ]
 }
