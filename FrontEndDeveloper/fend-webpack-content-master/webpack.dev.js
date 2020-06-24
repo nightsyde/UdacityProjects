@@ -5,7 +5,13 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
+  mode: 'development',
+  devtool: 'source-map',
   entry: ".\\src\\client\\index.js",
+  output: {
+    libraryTarget: 'var',
+    library: 'Client'
+  },
   module: {
     rules: [
       {
