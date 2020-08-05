@@ -3,6 +3,16 @@ body{
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
+main {
+    flex: 2;
+}
+
+section {
+    max-width: 800px;
+    margin: 50px auto;
+}
+
+
 #app{
     display: grid;
     grid-auto-rows: minmax(150px, auto);
