@@ -16,7 +16,7 @@
   "license": "ISC",
   "description": "npm stack for fend module 4",
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "minimist": "^1.2.5",
     "mkdir": "^0.0.2",
     "webpack": "^4.44.1",
